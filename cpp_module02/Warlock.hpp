@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <map>
+#include "SpellBook.hpp"
 
 class ASpell;
 class ATarget;
@@ -11,7 +12,7 @@ class Warlock
 	private:
 		std::string _name;
 		std::string _title;
-		std::map<std::string, ASpell *> _SpellBook;
+		SpellBook spellBook;
 	public:
 	    Warlock(const std::string &name, const std::string &title);
 	    ~Warlock();
