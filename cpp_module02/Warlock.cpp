@@ -33,29 +33,21 @@ void Warlock::introduce() const
 
 void Warlock::learnSpell(ASpell *spell)
 {
-    if (spell != nullptr)
-    {
-        std::map<std::string, ASpell *>::iterator it = _SpellBook.find(spell->getName());
-        if (it == _SpellBook.end())
-            _SpellBook[spell->getName()] = spell->clone();
-    }
+    spellBook.learnSpell(spell);
 }
 
 void Warlock::forgetSpell(std::string spellName)
 {
-    std::map<std::string, ASpell *>::iterator it = _SpellBook.find(spellName);
-
-    if (it != _SpellBook.end())
-    {
-        delete it->second;
-        _SpellBook.erase(spellName);
-    }
+    spellBook.forgetSpell(spellName);
 }
 
 void Warlock::launchSpell(std::string spellName, const ATarget &src)
 {
-    std::map<std::string, ASpell *>::iterator it = _SpellBook.find(spellName);
+    ASpell *spell = spellBook.createSpell(spellName);
 
-    if (it != _SpellBook.end())
-        it->second->launch(src);
+    if (spell != nullptr)
+    {
+        spell->launch(src);
+        delete spell;
+    }
 }
