@@ -33,7 +33,7 @@ void Warlock::introduce() const
 
 void Warlock::learnSpell(ASpell *spell)
 {
-    if (spell != nullptr)
+    if (spell != NULL)
     {
         std::map<std::string, ASpell *>::iterator it = _SpellBook.find(spell->getName());
         if (it == _SpellBook.end())

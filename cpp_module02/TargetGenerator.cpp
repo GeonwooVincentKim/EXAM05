@@ -11,7 +11,7 @@ TargetGenerator::~TargetGenerator()
 
 void TargetGenerator::learnTargetType(ATarget *target)
 {
-    if (target != nullptr)
+    if (target != NULL)
     {
         std::map<std::string, ATarget *>::iterator it = tgtTypes.find(target->getType());
 
@@ -34,5 +34,5 @@ ATarget *TargetGenerator::createTarget(const std::string &target)
 
     if (it != tgtTypes.end())
         return (it->second->clone());
-    return nullptr;
+    return NULL;
 }

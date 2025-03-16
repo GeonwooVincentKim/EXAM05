@@ -11,7 +11,7 @@ SpellBook::~SpellBook()
 
 void SpellBook::learnSpell(ASpell *spell)
 {
-    if (spell != nullptr)
+    if (spell != NULL)
     {
         std::map<std::string, ASpell *>::iterator it = _SpellBook.find(spell->getName());
 
@@ -37,5 +37,5 @@ ASpell *SpellBook::createSpell(const std::string &spellName)
 
     if (it != _SpellBook.end())
         return (it->second->clone());
-    return nullptr;
+    return NULL;
 }
